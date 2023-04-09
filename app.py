@@ -14,8 +14,20 @@ def convert_currency(amount, from_currency, to_currency):
 
 # Define the Streamlit app
 def app():
+    
     st.title("Currency Converter")
-
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://cutewallpaper.org/28/clean-dark-wallpaper-hd/1333232585.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
     # Input amount and currencies to convert
     amount = st.number_input("Enter the amount to convert:")
     from_currency = st.selectbox(

@@ -12,7 +12,7 @@ def convert_currency(amount, from_currency, to_currency):
         converted_amount = round(amount * rate, 2)
         return converted_amount
     except:
-        return None
+        raise ValueError("Cannot divide by zero")
 
 
 # Define the Streamlit app
@@ -383,11 +383,7 @@ def app():
 
     # Convert currency and display result
     if st.button("Convert"):
-        try:
-            result = convert_currency(amount, from_currency, to_currency)
-        except :
-            print("Conversion Rate Not Found")
-        
+        result = convert_currency(amount, from_currency, to_currency)
         st.write(
             f"<h3>{amount} {from_currency} = {result} {to_currency}</h3>",
             unsafe_allow_html=True,

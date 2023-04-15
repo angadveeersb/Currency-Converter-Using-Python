@@ -7,12 +7,10 @@ converter = CurrencyRates()
 
 # Define a function to convert currency
 def convert_currency(amount, from_currency, to_currency):
-    try:
-        rate = converter.get_rate(from_currency, to_currency)
-        converted_amount = round(amount * rate, 2)
-        return converted_amount
-    except:
-        return Exception
+    rate = converter.get_rate(from_currency, to_currency)
+    converted_amount = round(amount * rate, 2)
+    return converted_amount
+
 
 
 # Define the Streamlit app

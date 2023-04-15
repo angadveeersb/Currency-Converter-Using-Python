@@ -12,8 +12,8 @@ def convert_currency(amount, from_currency, to_currency):
         converted_amount = round(amount * rate, 2)
         return converted_amount
     except:
-        print("Conversion Rate Not Found")
-        return None
+        st.write("Conversion Rate Not Found")
+        # return None
 
 
 # Define the Streamlit app

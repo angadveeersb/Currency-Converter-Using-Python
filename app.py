@@ -12,7 +12,7 @@ def convert_currency(amount, from_currency, to_currency):
         converted_amount = round(amount * rate, 2)
         return converted_amount
     except:
-        raise ValueError("Cannot divide by zero")
+        return Exception
 
 
 # Define the Streamlit app

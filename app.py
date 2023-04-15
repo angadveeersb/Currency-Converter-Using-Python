@@ -12,7 +12,7 @@ def convert_currency(amount, from_currency, to_currency):
         converted_amount = round(amount * rate, 2)
         return converted_amount
     except :
-        st.write("Error: Exchange rates not available for the specified currency pair.")
+        st.write(f"<h3>Error: Exchange rates not available for the specified currency pair.</h3>",unsafe_allow_html=True)
         return None
 
 

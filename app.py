@@ -11,7 +11,7 @@ def convert_currency(amount, from_currency, to_currency):
         rate = converter.get_rate(from_currency, to_currency)
         converted_amount = round(amount * rate, 2)
         return converted_amount
-    except forex_python.converter.RatesNotAvailableError:
+    except :
         st.write("Error: Exchange rates not available for the specified currency pair.")
         return None
 

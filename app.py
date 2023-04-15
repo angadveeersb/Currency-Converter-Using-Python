@@ -7,9 +7,13 @@ converter = CurrencyRates()
 
 # Define a function to convert currency
 def convert_currency(amount, from_currency, to_currency):
-    rate = converter.get_rate(from_currency, to_currency)
-    converted_amount = round(amount * rate, 2)
-    return converted_amount
+    try:
+        rate = converter.get_rate(from_currency, to_currency)
+        converted_amount = round(amount * rate, 2)
+        return converted_amount
+    except forex_python.converter.RatesNotAvailableError:
+        st.write("Error: Exchange rates not available for the specified currency pair.")
+        return None
 
 
 
@@ -382,10 +386,12 @@ def app():
     # Convert currency and display result
     if st.button("Convert"):
         result = convert_currency(amount, from_currency, to_currency)
-        st.write(
+        if result is not None:
+            st.write(
             f"<h3>{amount} {from_currency} = {result} {to_currency}</h3>",
             unsafe_allow_html=True,
         )
+
 
 
 # Run the app
